@@ -76,7 +76,6 @@ def aco_tsp(n_iter=100, n_ants=30, dist_matrix=None, alpha=1.0, beta=5.0, rho=0.
 
     return best_path, best_len, history
 
-# teste standalone
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     np.random.seed(0)

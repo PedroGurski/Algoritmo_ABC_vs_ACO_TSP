@@ -83,7 +83,6 @@ def artificial_bee_colony_tsp(n_iter=100, n_bees=30, dist_matrix=None, scout_pro
 
     return best_bee, best_fit, history
 
-# permite uso standalone para teste
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     np.random.seed(0)
