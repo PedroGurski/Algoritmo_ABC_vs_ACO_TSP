@@ -38,11 +38,15 @@ Abelhas Observadoras: Escolhem soluções para explorar (via 2-Opt) baseadas na 
 
 Abelhas Batedoras (Scouts): Soluções abandonadas que excedem o limit de tentativas são substituídas por novas permutações aleatórias.
 
-## 🐜 Ant Colony Optimization (ACO) - (aco_tsp.py)
+### 🐜 Ant Colony Optimization (ACO) - (`aco_tsp.py`)
+
 O ACO é implementado com o modelo clássico:
 
-Construção de Solução: Cada formiga constrói um caminho sequencialmente, escolhendo a próxima cidade com base na quantidade de feromônio ($\tau_{ij}$) e na visibilidade heurística ($\eta_{ij} = 1 / d_{ij}$).$$P_{ij} = \frac{(\tau_{ij})^\alpha \cdot (\eta_{ij})^\beta}{\sum_{l \in \text{Unvisited}} (\tau_{il})^\alpha \cdot (\eta_{il})^\beta}$$
+1.  **Construção de Solução:** Cada formiga constrói um caminho sequencialmente, escolhendo a próxima cidade com base na **quantidade de feromônio** ($\tau_{ij}$) e na **visibilidade heurística** ($\eta_{ij} = 1 / d_{ij}$).
 
-Atualização de Feromônio:
-Evaporação: O feromônio em todas as arestas é reduzido pelo fator $(1 - \rho)$.
-Depósito: Feromônio é adicionado às arestas percorridas, em quantidade inversamente proporcional ao comprimento total ($L$) do tour da formiga ($\Delta \tau = 1/L$).
+    A probabilidade de uma formiga escolher a cidade $j$ a partir da cidade $i$ é dada por:
+    $$P_{ij} = \frac{(\tau_{ij})^\alpha \cdot (\eta_{ij})^\beta}{\sum_{l \in \text{Unvisited}} (\tau_{il})^\alpha \cdot (\eta_{il})^\beta}$$
+
+2.  **Atualização de Feromônio:**
+    * **Evaporação:** O feromônio em todas as arestas é reduzido pelo fator $(1 - \rho)$.
+    * **Depósito:** Feromônio é adicionado às arestas percorridas, em quantidade inversamente proporcional ao comprimento total ($L$) do tour da formiga ($\Delta \tau = 1/L$).
